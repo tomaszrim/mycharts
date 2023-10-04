@@ -1,0 +1,34 @@
+image:
+  repository: tomaszrim/gammu
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 8099
+persistence:
+  configs:
+    enabled: true
+    mountPath: "/opt/configs"
+    targetSelectAll: true
+  data:
+    enabled: true
+    mountPath: "/opt/data"
+    targetSelectAll: true
+  website:
+    enabled: true
+    mountPath: "/opt/website"
+    targetSelectAll: true
+  logs:
+    enabled: true
+    mountPath: "/opt/logs"
+    targetSelectAll: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
